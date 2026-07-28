@@ -44,3 +44,28 @@ git diff --cached --stat
 ```
 
 GitHub Actionsは `.github/workflows/ci.yml` で同じ検証を実行します。
+
+## GitHub Pagesで担当者確認する
+
+このリポジトリには `.github/workflows/pages.yml` があり、`main` へpushすると公開画面の静的プレビューをGitHub Pagesへデプロイする。
+
+手順:
+
+1. GitHubのリポジトリで `Settings` を開く
+2. `Pages` を開く
+3. `Build and deployment` の `Source` を `GitHub Actions` にする
+4. `Actions` タブで `GitHub Pages Preview` の成功を確認する
+5. 表示されたPages URLを担当者へ共有する
+
+このリポジトリ名ではURLは通常、以下の形式になる。
+
+```text
+https://scqdan0405-art.github.io/bibs-sales-site/
+```
+
+制限:
+
+- 問い合わせ送信は動作しない
+- 添付保存は動作しない
+- 管理画面ログインは動作しない
+- これらは `npm.cmd run dev` でローカル確認、または本番サーバーへデプロイして確認する

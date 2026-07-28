@@ -61,6 +61,16 @@ npm.cmd run build
 
 GitHub Actionsでも同じ検証を実行します。詳細は `docs/GITHUB_RELEASE_PREP.md` を参照してください。
 
+## GitHub Pages プレビュー
+
+担当者がGitHubから公開画面を確認できるよう、静的プレビューを生成できます。
+
+```bash
+npm.cmd run export:static
+```
+
+GitHubでは `Actions` の `GitHub Pages Preview` が `dist-static` をPagesへ公開します。GitHub Pagesは静的ホスティングのため、問い合わせ送信、添付保存、管理者ログインはローカル実行版または本番サーバーで確認してください。
+
 ## メール設定
 
 初期版ではメール送信を `data/mail-outbox.json` に記録します。本番では `src/lib/mail.ts` の `MailAdapter` をSMTPまたは送信APIに差し替え、SPF/DKIM/DMARCを設定してください。顧客メールをFromに設定せず、検証済みの場合のみReply-Toへ設定します。

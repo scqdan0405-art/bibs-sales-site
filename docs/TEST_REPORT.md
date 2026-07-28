@@ -8,6 +8,7 @@
 | `npm.cmd run typecheck` | 成功 | 17 files |
 | `npm.cmd run test` | 成功 | 5 tests |
 | `npm.cmd run build` | 成功 | lint、typecheck、unit/integration |
+| `npm.cmd run export:static` | 成功 | GitHub Pages用 `dist-static` 生成 |
 | HTTP smoke `/` | 成功 | 200 |
 | HTTP smoke `/admin/login` | 成功 | 200 |
 | HTTP smoke `/sitemap.xml` | 成功 | 200 |

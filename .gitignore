@@ -4,5 +4,6 @@
 data/mail-outbox.json
 data/uploads/*
 !data/uploads/.gitkeep
+dist-static/
 node_modules/
 .DS_Store

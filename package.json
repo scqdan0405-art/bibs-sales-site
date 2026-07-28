@@ -9,6 +9,7 @@
     "lint": "node scripts/lint.ts",
     "typecheck": "node scripts/typecheck.ts",
     "test": "node --test tests/unit/*.test.ts tests/integration/*.test.ts",
-    "build": "node scripts/build-check.ts"
+    "build": "node scripts/build-check.ts",
+    "export:static": "node scripts/export-static.ts"
   }
 }
