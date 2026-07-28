@@ -1,0 +1,30 @@
+{
+  "site": {
+    "brandName": "BIBS FACTORY",
+    "tagline": "チームの一体感をつくるオリジナルビブス",
+    "description": "スポーツ、イベント、学校行事向けのオリジナルビブス制作相談サイトです。",
+    "companyName": "運営者名（要確認）",
+    "contactEmail": "contact@example.invalid",
+    "businessHours": "平日 10:00-17:00",
+    "privacyPolicy": "取得した個人情報は問い合わせ対応、見積り、制作確認の目的に限って利用します。正式文面は本番公開前に確認してください。",
+    "termsNote": "価格、納期、送料、キャンセル条件は正式確認前の仮情報です。"
+  },
+  "prices": [
+    { "id": "starter", "label": "シンプル印刷", "priceYen": 1200, "unit": "1枚", "description": "番号や短い文字の印刷に向いた基本プラン", "status": "published" },
+    { "id": "team", "label": "チーム名入り", "priceYen": 1800, "unit": "1枚", "description": "チーム名、ロゴ配置の相談に対応するプラン", "status": "published" },
+    { "id": "event", "label": "イベント一式", "priceYen": 2400, "unit": "1枚", "description": "複数色や役割表示が必要なイベント向け", "status": "published" }
+  ],
+  "cases": [
+    { "id": "school", "title": "学校行事向け", "category": "school", "summary": "学年別カラーと大きな番号で見分けやすくした例", "body": "屋外でも視認しやすい色と番号サイズを重視した構成です。", "imageAlt": "学校行事向けビブスのプレースホルダー", "status": "published" },
+    { "id": "sports", "title": "スポーツチーム向け", "category": "sports", "summary": "練習用に洗い替えしやすい色分けを行った例", "body": "背番号とチーム名を読みやすく配置した構成です。", "imageAlt": "スポーツチーム向けビブスのプレースホルダー", "status": "published" },
+    { "id": "event", "title": "イベントスタッフ向け", "category": "event", "summary": "役割名を前後に配置して誘導しやすくした例", "body": "受付、案内、運営など役割ごとに判別しやすい構成です。", "imageAlt": "イベントスタッフ向けビブスのプレースホルダー", "status": "published" }
+  ],
+  "faqs": [
+    { "id": "minimum", "question": "少ない枚数でも相談できますか？", "answer": "可能です。希望数量を問い合わせフォームへ入力してください。", "sortOrder": 1, "status": "published" },
+    { "id": "design", "question": "デザインが未定でも相談できますか？", "answer": "相談できます。ロゴや参考画像があれば添付してください。", "sortOrder": 2, "status": "published" },
+    { "id": "delivery", "question": "納期はどのくらいですか？", "answer": "正式な納期は数量と仕様確認後に回答します。", "sortOrder": 3, "status": "published" }
+  ],
+  "notices": [
+    { "id": "shipping", "title": "送料・納期", "body": "送料、納期、キャンセル条件は本番公開前に正式確認してください。", "status": "published" }
+  ]
+}

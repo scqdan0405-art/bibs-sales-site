@@ -1,0 +1,8 @@
+.env
+.env.*
+!.env.example
+data/mail-outbox.json
+data/uploads/*
+!data/uploads/.gitkeep
+node_modules/
+.DS_Store
