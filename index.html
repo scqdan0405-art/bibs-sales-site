@@ -1,257 +1,57 @@
 <!doctype html>
 <html lang="ja">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>商品販売サイト 初期公開チェックリスト</title>
-  <style>
-    :root {
-      --bg:#f5f7fb; --card:#fff; --text:#1f2937; --muted:#6b7280;
-      --line:#dbe3ee; --accent:#1d4ed8; --ok:#166534; --warn:#92400e;
-      --danger:#991b1b; --soft:#eef4ff; --head:#0f172a;
-    }
-    *{box-sizing:border-box}
-    body{margin:0;background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans JP",sans-serif;line-height:1.65}
-    header{background:linear-gradient(135deg,#0f172a,#1e3a8a);color:#fff;padding:42px 20px}
-    header .inner,main{max-width:1180px;margin:auto}
-    h1{margin:0 0 10px;font-size:clamp(28px,4vw,44px)}
-    h2{margin:0 0 14px;color:var(--head);font-size:26px}
-    h3{margin:0 0 8px;font-size:19px;color:var(--head)}
-    p{margin:6px 0 12px}
-    main{padding:28px 18px 64px}
-    .summary,.section,.note{background:var(--card);border:1px solid var(--line);border-radius:14px;box-shadow:0 4px 20px rgba(15,23,42,.05)}
-    .summary{padding:20px;margin-bottom:22px;display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:14px}
-    .metric{background:var(--soft);border-radius:10px;padding:14px}
-    .metric strong{display:block;font-size:24px;color:var(--accent)}
-    .section{padding:22px;margin:20px 0}
-    .section-title{display:flex;justify-content:space-between;gap:12px;align-items:flex-start;flex-wrap:wrap}
-    .actions{display:flex;gap:8px;flex-wrap:wrap}
-    button{border:1px solid var(--line);background:#fff;padding:8px 12px;border-radius:8px;cursor:pointer;font-weight:600}
-    button:hover{background:#f8fafc}
-    .primary{background:var(--accent);color:#fff;border-color:var(--accent)}
-    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:15px;margin-top:16px}
-    .card{border:1px solid var(--line);border-radius:12px;padding:16px;background:#fff}
-    .card.critical{border-left:5px solid var(--danger)}
-    .card.important{border-left:5px solid var(--warn)}
-    .card.normal{border-left:5px solid var(--accent)}
-    .tag{display:inline-block;border-radius:999px;padding:2px 8px;font-size:12px;font-weight:700;margin-left:6px}
-    .tag.critical{background:#fee2e2;color:var(--danger)}
-    .tag.important{background:#fef3c7;color:var(--warn)}
-    .tag.optional{background:#e0e7ff;color:#3730a3}
-    ul.checklist{list-style:none;padding:0;margin:10px 0 0}
-    ul.checklist li{border-top:1px dashed var(--line);padding:9px 0;display:flex;gap:9px;align-items:flex-start}
-    ul.checklist li:first-child{border-top:0}
-    input[type=checkbox]{width:18px;height:18px;margin-top:3px;accent-color:var(--accent);flex:0 0 auto}
-    label{cursor:pointer;flex:1}
-    .detail{display:block;color:var(--muted);font-size:13px;margin-top:3px}
-    .note{padding:16px 18px;margin:18px 0;background:#fffbeb;border-color:#fde68a}
-    .danger-note{background:#fef2f2;border-color:#fecaca}
-    table{width:100%;border-collapse:collapse;margin-top:14px;font-size:14px}
-    th,td{border:1px solid var(--line);padding:10px;vertical-align:top;text-align:left}
-    th{background:#eff6ff;color:#1e3a8a}
-    code{background:#eef2f7;padding:2px 5px;border-radius:5px}
-    .progress-wrap{height:12px;background:#e5e7eb;border-radius:999px;overflow:hidden;margin-top:8px}
-    .progress{height:100%;width:0;background:var(--accent);transition:.2s}
-    .footer-note{color:var(--muted);font-size:13px;margin-top:24px}
-    @media print{header{background:#fff;color:#000;padding:10px 0}.actions{display:none}.section,.summary{box-shadow:none;break-inside:avoid}.card{break-inside:avoid}body{background:#fff}}
-  </style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>BIBS FACTORY | オリジナルビブス制作</title>
+  <meta name="description" content="オリジナルビブスの制作相談サイト">
+  <meta property="og:title" content="BIBS FACTORY | オリジナルビブス制作">
+  <meta property="og:description" content="オリジナルビブスの制作相談サイト">
+  <meta property="og:type" content="website">
+  
+  
+  <link rel="icon" href="/bibs-sales-site/favicon.svg">
+  <link rel="stylesheet" href="/bibs-sales-site/styles.css">
 </head>
-<body>
-<header>
-  <div class="inner">
-    <h1>商品販売サイト 初期公開チェックリスト</h1>
-    <p>人間が準備・加工する内容、人間が実機確認する内容、Codexが自動テストする内容を分離した公開判定資料です。</p>
-  </div>
+<body><header class="site-header">
+  <a class="brand" href="/bibs-sales-site/">BIBS FACTORY</a>
+  <nav aria-label="主要ページ">
+    <a href="/bibs-sales-site/features">商品・特徴</a>
+    <a href="/bibs-sales-site/price">価格・サイズ</a>
+    <a href="/bibs-sales-site/cases">制作事例</a>
+    <a href="/bibs-sales-site/flow">注文の流れ</a>
+    <a href="/bibs-sales-site/faq">FAQ</a>
+    <a class="button small" href="/bibs-sales-site/contact">問い合わせ</a>
+  </nav>
 </header>
 <main>
-  <section class="summary">
-    <div class="metric"><span>全項目</span><strong id="totalCount">0</strong></div>
-    <div class="metric"><span>完了</span><strong id="doneCount">0</strong></div>
-    <div class="metric"><span>未完了</span><strong id="remainingCount">0</strong></div>
-    <div class="metric"><span>進捗率</span><strong id="progressText">0%</strong><div class="progress-wrap"><div class="progress" id="progressBar"></div></div></div>
-  </section>
-
-  <div class="note danger-note"><strong>公開禁止条件：</strong>「必須」項目に未完了がある、問い合わせが届かない、添付ファイルが安全に扱えない、管理画面へ未認証で入れる、個人情報がログに出る、いずれかに該当する場合は本番公開しない。</div>
-
-  <section class="section" id="materials">
-    <div class="section-title">
-      <div><h2>1．サイトに必要なイメージ・文章・人間が加工するもの</h2><p>Codexでは確定できない、事業者側が用意・確認する素材と設定です。</p></div>
-      <div class="actions"><button onclick="setSection('materials',true)">全てチェック</button><button onclick="setSection('materials',false)">解除</button></div>
+  <section class="hero">
+    <div>
+      <p class="eyebrow">GitHub Pages preview</p>
+      <h1>チームの一体感をつくるオリジナルビブス</h1>
+      <p>スポーツ、イベント、学校行事向けのオリジナルビブス制作相談サイトです。</p>
+      <div class="actions"><a class="button" href="./price/">価格を見る</a><a class="button secondary" href="./cases/">制作事例を見る</a><a class="button ghost" href="./contact/">無料相談・問い合わせ</a></div>
     </div>
-    <div class="grid">
-      <article class="card critical"><h3>ブランド基本素材 <span class="tag critical">必須</span></h3><ul class="checklist">
-        <li><input type="checkbox" id="m01"><label for="m01">正式ロゴデータ<span class="detail">SVGまたは高解像度PNG。透明背景版と白背景版を推奨。</span></label></li>
-        <li><input type="checkbox" id="m02"><label for="m02">サイト名・会社名・正式表記<span class="detail">日本語、英語表記、商号、サービス名の表記揺れを統一。</span></label></li>
-        <li><input type="checkbox" id="m03"><label for="m03">ブランドカラーと使用禁止色<span class="detail">指定がなければ仮色で公開せず、人間が最終承認。</span></label></li>
-        <li><input type="checkbox" id="m04"><label for="m04">favicon・SNS共有画像<span class="detail">faviconは正方形、OGP画像は1200×630pxを推奨。</span></label></li>
-      </ul></article>
-
-      <article class="card critical"><h3>トップページ画像 <span class="tag critical">必須</span></h3><ul class="checklist">
-        <li><input type="checkbox" id="m05"><label for="m05">メインビジュアル<span class="detail">PC用とスマートフォン用。商品が一目で分かり、文字を重ねても見やすい画像。</span></label></li>
-        <li><input type="checkbox" id="m06"><label for="m06">商品・特徴紹介画像<span class="detail">最低3〜6点。類似画像ばかりにせず用途や強みを分ける。</span></label></li>
-        <li><input type="checkbox" id="m07"><label for="m07">画像のトリミングと明るさ調整<span class="detail">暗い写真、傾き、不要背景、個人情報、他社ロゴを確認して加工。</span></label></li>
-        <li><input type="checkbox" id="m08"><label for="m08">Web用軽量化<span class="detail">原則WebP/AVIF。品質を保ちつつ1枚300KB前後以下を目安。</span></label></li>
-      </ul></article>
-
-      <article class="card critical"><h3>制作事例 <span class="tag critical">必須</span></h3><ul class="checklist">
-        <li><input type="checkbox" id="m09"><label for="m09">初期掲載する制作事例画像<span class="detail">最低6件、可能なら12件以上。商品種別、用途、色を分散。</span></label></li>
-        <li><input type="checkbox" id="m10"><label for="m10">掲載許可の確認<span class="detail">顧客名、チーム名、顔、ロゴ、商標が写る場合は掲載許可を取る。</span></label></li>
-        <li><input type="checkbox" id="m11"><label for="m11">各事例の説明文<span class="detail">用途、数量目安、特徴、納期例。実績のない数値は書かない。</span></label></li>
-        <li><input type="checkbox" id="m12"><label for="m12">事例カテゴリー<span class="detail">初期版は3〜6分類程度。細分化しすぎない。</span></label></li>
-      </ul></article>
-
-      <article class="card critical"><h3>価格・納期・取引条件 <span class="tag critical">必須</span></h3><ul class="checklist">
-        <li><input type="checkbox" id="m13"><label for="m13">正式価格表<span class="detail">税込・税別、数量条件、サイズ差、オプション料金を明確化。</span></label></li>
-        <li><input type="checkbox" id="m14"><label for="m14">送料条件<span class="detail">地域、無料条件、離島・海外、再配送の扱いを明記。</span></label></li>
-        <li><input type="checkbox" id="m15"><label for="m15">納期条件<span class="detail">起算日を「入金後」「デザイン確定後」など具体的に定義。</span></label></li>
-        <li><input type="checkbox" id="m16"><label for="m16">キャンセル・変更・返品条件<span class="detail">製造開始前後、デザイン確定後、不良品時の責任範囲を確認。</span></label></li>
-        <li><input type="checkbox" id="m17"><label for="m17">最低注文数と追加注文条件<span class="detail">例外対応がある場合も記載方法を決める。</span></label></li>
-      </ul></article>
-
-      <article class="card important"><h3>文章・営業情報 <span class="tag important">重要</span></h3><ul class="checklist">
-        <li><input type="checkbox" id="m18"><label for="m18">キャッチコピーと強み<span class="detail">価格、品質、対応範囲、納期など、事実確認できる内容だけを使う。</span></label></li>
-        <li><input type="checkbox" id="m19"><label for="m19">商品説明・注文の流れ<span class="detail">顧客が問い合わせ後に何が起きるかを順番に記載。</span></label></li>
-        <li><input type="checkbox" id="m20"><label for="m20">FAQ回答<span class="detail">問い合わせが多い項目を優先。曖昧な回答は公開しない。</span></label></li>
-        <li><input type="checkbox" id="m21"><label for="m21">電話番号・メール・営業時間<span class="detail">担当者が実際に対応できる窓口だけを掲載。</span></label></li>
-      </ul></article>
-
-      <article class="card critical"><h3>法務・会社情報 <span class="tag critical">必須</span></h3><ul class="checklist">
-        <li><input type="checkbox" id="m22"><label for="m22">会社・運営者情報<span class="detail">名称、所在地、代表者、連絡先。必要な表示項目を法務担当者が確認。</span></label></li>
-        <li><input type="checkbox" id="m23"><label for="m23">プライバシーポリシー<span class="detail">収集項目、利用目的、保存期間、第三者提供、問い合わせ窓口を確認。</span></label></li>
-        <li><input type="checkbox" id="m24"><label for="m24">特商法等の必要表示確認<span class="detail">販売・決済を初期版で行わなくても、事業形態に応じて専門家確認。</span></label></li>
-        <li><input type="checkbox" id="m25"><label for="m25">著作権・商標確認<span class="detail">参考サイトの画像・文章・ロゴをコピーしていないことを確認。</span></label></li>
-      </ul></article>
-
-      <article class="card critical"><h3>システム運用設定 <span class="tag critical">必須</span></h3><ul class="checklist">
-        <li><input type="checkbox" id="m26"><label for="m26">本番ドメインとDNS<span class="detail">所有者、更新担当、期限、DNS管理アカウントを確認。</span></label></li>
-        <li><input type="checkbox" id="m27"><label for="m27">問い合わせ受信用メール<span class="detail">迷惑メール設定、受信容量、転送、担当者不在時の運用を決定。</span></label></li>
-        <li><input type="checkbox" id="m28"><label for="m28">自動返信メール文面<span class="detail">返信期限を守れる内容にする。過剰な約束をしない。</span></label></li>
-        <li><input type="checkbox" id="m29"><label for="m29">管理者アカウント<span class="detail">共有アカウントを避け、強固なパスワードと保管責任者を決める。</span></label></li>
-        <li><input type="checkbox" id="m30"><label for="m30">バックアップ保管先と復元担当<span class="detail">誰が、いつ、どこへ復元するかを決める。</span></label></li>
-      </ul></article>
-    </div>
+    <div class="product-photo" role="img" aria-label="オリジナルビブスの商品写真プレースホルダー"><span>BIBS</span></div>
   </section>
-
-  <section class="section" id="humanTests">
-    <div class="section-title">
-      <div><h2>2．人間が実機でテストしないといけない内容</h2><p>自動テストだけでは判断できない、見た目、実メール、実端末、業務運用の確認です。</p></div>
-      <div class="actions"><button onclick="setSection('humanTests',true)">全てチェック</button><button onclick="setSection('humanTests',false)">解除</button></div>
-    </div>
-    <div class="grid">
-      <article class="card critical"><h3>表示・デザイン <span class="tag critical">必須</span></h3><ul class="checklist">
-        <li><input type="checkbox" id="h01"><label for="h01">iPhone実機で全ページ確認<span class="detail">Safariで文字切れ、横スクロール、ボタン重なり、画像崩れを確認。</span></label></li>
-        <li><input type="checkbox" id="h02"><label for="h02">Android実機で全ページ確認<span class="detail">Chromeでフォーム、画像添付、戻る操作を確認。</span></label></li>
-        <li><input type="checkbox" id="h03"><label for="h03">PC主要ブラウザ確認<span class="detail">Chrome、Edge、必要に応じSafari。最低2種類で確認。</span></label></li>
-        <li><input type="checkbox" id="h04"><label for="h04">画像と文章の最終校正<span class="detail">誤字、旧価格、仮文章、プレースホルダー、他社名が残っていない。</span></label></li>
-        <li><input type="checkbox" id="h05"><label for="h05">問い合わせボタンの分かりやすさ<span class="detail">初めて見た人が迷わず問い合わせへ進めるか第三者に確認してもらう。</span></label></li>
-      </ul></article>
-
-      <article class="card critical"><h3>問い合わせ業務 <span class="tag critical">必須</span></h3><ul class="checklist">
-        <li><input type="checkbox" id="h06"><label for="h06">実在メールアドレスで送信<span class="detail">Gmail、会社メールなど複数宛先で管理者通知と自動返信を確認。</span></label></li>
-        <li><input type="checkbox" id="h07"><label for="h07">迷惑メールフォルダ確認<span class="detail">自動返信・管理者通知が迷惑メール扱いされないか確認。</span></label></li>
-        <li><input type="checkbox" id="h08"><label for="h08">電話番号・メールリンク確認<span class="detail">スマートフォンで電話アプリ、メールアプリが正しく開く。</span></label></li>
-        <li><input type="checkbox" id="h09"><label for="h09">問い合わせ後の社内対応確認<span class="detail">誰が確認し、何時間以内に返信し、未対応をどう防ぐかを実地確認。</span></label></li>
-        <li><input type="checkbox" id="h10"><label for="h10">問い合わせ番号の照合<span class="detail">画面、顧客メール、管理者メール、管理画面で同じ番号になっている。</span></label></li>
-      </ul></article>
-
-      <article class="card critical"><h3>画像・PDF添付 <span class="tag critical">必須</span></h3><ul class="checklist">
-        <li><input type="checkbox" id="h11"><label for="h11">スマートフォン写真の直接添付<span class="detail">カメラ撮影、写真ライブラリ、複数ファイルを実際に試す。</span></label></li>
-        <li><input type="checkbox" id="h12"><label for="h12">PDF添付と管理者閲覧<span class="detail">日本語ファイル名、長いファイル名も確認。</span></label></li>
-        <li><input type="checkbox" id="h13"><label for="h13">容量超過時の案内<span class="detail">顧客が次に何をすればよいか分かるエラー文になっている。</span></label></li>
-        <li><input type="checkbox" id="h14"><label for="h14">添付ファイルの非公開確認<span class="detail">URLを知っているだけの第三者が直接閲覧できないことを人間も確認。</span></label></li>
-      </ul></article>
-
-      <article class="card critical"><h3>管理画面 <span class="tag critical">必須</span></h3><ul class="checklist">
-        <li><input type="checkbox" id="h15"><label for="h15">画像差し替え<span class="detail">トップ画像、商品画像、事例画像を非技術者が変更できる。</span></label></li>
-        <li><input type="checkbox" id="h16"><label for="h16">価格・納期変更<span class="detail">変更後に公開画面へ正しく反映し、古い表示が残らない。</span></label></li>
-        <li><input type="checkbox" id="h17"><label for="h17">制作事例とFAQの公開・非公開<span class="detail">下書きが外部公開されないことを確認。</span></label></li>
-        <li><input type="checkbox" id="h18"><label for="h18">誤操作時の復旧<span class="detail">削除確認、保存前警告、バックアップからの復元方法を確認。</span></label></li>
-      </ul></article>
-
-      <article class="card important"><h3>営業・業務判断 <span class="tag important">重要</span></h3><ul class="checklist">
-        <li><input type="checkbox" id="h19"><label for="h19">価格表示で誤解が起きない<span class="detail">表示価格だけで注文確定と誤認されないか営業担当が確認。</span></label></li>
-        <li><input type="checkbox" id="h20"><label for="h20">納期表示が守れる<span class="detail">繁忙期、休業日、デザイン修正期間を含めて実運用と一致。</span></label></li>
-        <li><input type="checkbox" id="h21"><label for="h21">問い合わせ項目が過不足ない<span class="detail">営業担当が見積り着手できる最低限情報が揃うか確認。</span></label></li>
-        <li><input type="checkbox" id="h22"><label for="h22">第三者による購入導線テスト<span class="detail">事前説明なしで価格確認から問い合わせ完了まで行ってもらう。</span></label></li>
-      </ul></article>
-
-      <article class="card critical"><h3>本番公開・障害対応 <span class="tag critical">必須</span></h3><ul class="checklist">
-        <li><input type="checkbox" id="h23"><label for="h23">本番URLとSSL確認<span class="detail">証明書警告、HTTP混在、古いドメインへのリンクがない。</span></label></li>
-        <li><input type="checkbox" id="h24"><label for="h24">バックアップ復元テスト<span class="detail">バックアップ取得だけでなく、別環境または検証環境へ復元する。</span></label></li>
-        <li><input type="checkbox" id="h25"><label for="h25">障害時の連絡先と停止方法<span class="detail">問い合わせ停止、メンテナンス表示、担当者連絡方法を確認。</span></label></li>
-        <li><input type="checkbox" id="h26"><label for="h26">アクセス解析の個人情報確認<span class="detail">メール、電話、問い合わせ本文、ファイル名が送信されていない。</span></label></li>
-      </ul></article>
-    </div>
+  <section class="grid three"><article><h2>見やすい番号</h2><p>屋外でも判別しやすい文字サイズを前提に相談できます。</p></article><article><h2>色分け相談</h2><p>チーム、学年、役割ごとの使い分けを整理できます。</p></article><article><h2>画像添付</h2><p>本番アプリではロゴ、参考画像、PDFを問い合わせ時に添付できます。</p></article></section>
+  <section><h2>制作事例</h2><div class="case-grid"><article class="case-card"><div class="placeholder small" role="img" aria-label="学校行事向けビブスのプレースホルダー"></div><h3>学校行事向け</h3><p>学年別カラーと大きな番号で見分けやすくした例</p><a href="./cases/school/">詳細を見る</a></article><article class="case-card"><div class="placeholder small" role="img" aria-label="スポーツチーム向けビブスのプレースホルダー"></div><h3>スポーツチーム向け</h3><p>練習用に洗い替えしやすい色分けを行った例</p><a href="./cases/sports/">詳細を見る</a></article><article class="case-card"><div class="placeholder small" role="img" aria-label="イベントスタッフ向けビブスのプレースホルダー"></div><h3>イベントスタッフ向け</h3><p>役割名を前後に配置して誘導しやすくした例</p><a href="./cases/event/">詳細を見る</a></article></div></section>
+  <section class="cta-band">
+    <h2>数量やデザインが未定でも相談できます</h2>
+    <p>必要な情報だけ入力してください。担当者が内容を確認して連絡します。</p>
+    <a class="button" href="/bibs-sales-site/contact">無料相談・問い合わせ</a>
   </section>
-
-  <section class="section" id="codexTests">
-    <div class="section-title">
-      <div><h2>3．Codexが自動化・実行するべきテスト</h2><p>不具合を減らすため、実装と同時にテストコードを作成し、CIで毎回実行します。</p></div>
-      <div class="actions"><button onclick="setSection('codexTests',true)">全てチェック</button><button onclick="setSection('codexTests',false)">解除</button></div>
-    </div>
-    <div class="note"><strong>Codexへの必須指示：</strong>テストを通すために機能を無効化したり、失敗テストを削除してはならない。失敗原因を修正し、全テスト、型チェック、静的解析、ビルドを再実行する。</div>
-    <table>
-      <thead><tr><th style="width:5%">完了</th><th style="width:18%">分類</th><th>必須テスト</th><th style="width:25%">合格条件</th></tr></thead>
-      <tbody>
-        <tr><td><input type="checkbox" id="c01"></td><td><label for="c01">入力検証</label></td><td>必須、最大長、メール形式、電話形式、数量、同意チェック、Unicode・絵文字・改行</td><td>不正入力は400系で拒否し、日本語エラーを返す</td></tr>
-        <tr><td><input type="checkbox" id="c02"></td><td><label for="c02">問い合わせ</label></td><td>正常登録、二重送信、DB失敗、タイムアウト、同一リクエスト再送</td><td>重複登録せず、失敗時に不整合が残らない</td></tr>
-        <tr><td><input type="checkbox" id="c03"></td><td><label for="c03">添付</label></td><td>JPEG/PNG/PDF、MIME偽装、二重拡張子、0バイト、容量超過、個数超過、長い名前、パストラバーサル</td><td>許可ファイルだけ保存し、公開領域へ直接置かない</td></tr>
-        <tr><td><input type="checkbox" id="c04"></td><td><label for="c04">メール</label></td><td>顧客・管理者メール生成、特殊文字、送信失敗、再送キュー、問い合わせ番号一致</td><td>メール失敗でも問い合わせデータを失わない</td></tr>
-        <tr><td><input type="checkbox" id="c05"></td><td><label for="c05">認証</label></td><td>正常ログイン、失敗回数制限、期限切れ、ログアウト、未認証アクセス、権限外API</td><td>管理画面・管理APIを確実に拒否する</td></tr>
-        <tr><td><input type="checkbox" id="c06"></td><td><label for="c06">CSRF/XSS/SQLi</label></td><td>CSRF欠落・不正、script入力、HTML属性攻撃、SQL文字列、テンプレート注入</td><td>実行・保存・画面反映されず安全に無害化</td></tr>
-        <tr><td><input type="checkbox" id="c07"></td><td><label for="c07">管理CRUD</label></td><td>価格、納期、画像、事例、FAQ、注意事項の作成・更新・非公開・削除・並び替え</td><td>公開状態と表示順が正しく反映される</td></tr>
-        <tr><td><input type="checkbox" id="c08"></td><td><label for="c08">DB</label></td><td>migration up/down、空DB構築、seed再実行、一意制約、外部キー、トランザクション</td><td>新規環境を手作業なしで再現できる</td></tr>
-        <tr><td><input type="checkbox" id="c09"></td><td><label for="c09">E2E</label></td><td>トップ→価格→事例→問い合わせ→完了、管理者ログイン→更新→公開反映</td><td>主要導線がブラウザ操作で最後まで成功</td></tr>
-        <tr><td><input type="checkbox" id="c10"></td><td><label for="c10">レスポンシブ</label></td><td>360、390、768、1024、1440pxのスクリーンショット・横スクロール検知</td><td>主要画面で重なり、切れ、横スクロールなし</td></tr>
-        <tr><td><input type="checkbox" id="c11"></td><td><label for="c11">アクセシビリティ</label></td><td>ラベル、キーボード、フォーカス、alt、見出し順、コントラスト、エラー関連付け</td><td>重大エラー0件</td></tr>
-        <tr><td><input type="checkbox" id="c12"></td><td><label for="c12">SEO</label></td><td>title、description、canonical、OGP、sitemap、robots、404、構造化データ</td><td>必須メタ情報が環境別に正しい</td></tr>
-        <tr><td><input type="checkbox" id="c13"></td><td><label for="c13">ログ・個人情報</label></td><td>メール、電話、本文、パスワード、Cookie、添付名がログ・解析へ出ないこと</td><td>秘密情報・個人情報の漏洩0件</td></tr>
-        <tr><td><input type="checkbox" id="c14"></td><td><label for="c14">負荷・乱用</label></td><td>連続送信、レート制限、同時アップロード、大量閲覧、遅いメールサービス</td><td>サービス停止や重複登録を起こさない</td></tr>
-        <tr><td><input type="checkbox" id="c15"></td><td><label for="c15">依存関係</label></td><td>脆弱性監査、lockfile固定、未使用依存、秘密情報スキャン</td><td>重大・高リスク脆弱性0件</td></tr>
-        <tr><td><input type="checkbox" id="c16"></td><td><label for="c16">ビルド・起動</label></td><td>format、lint、typecheck、unit、integration、e2e、production build、production start</td><td>全コマンド成功、無視設定による回避なし</td></tr>
-        <tr><td><input type="checkbox" id="c17"></td><td><label for="c17">バックアップ</label></td><td>DBとアップロードファイルのバックアップ作成、復元スクリプト、整合性確認</td><td>検証環境で復元後に画面と添付を確認できる</td></tr>
-        <tr><td><input type="checkbox" id="c18"></td><td><label for="c18">回帰テスト</label></td><td>修正した不具合ごとに再現テストを追加し、CIへ組み込む</td><td>同じ不具合が再発しない</td></tr>
-      </tbody>
-    </table>
-
-    <h3 style="margin-top:22px">GitHub Actions / CIで毎回実行する順序</h3>
-    <ol>
-      <li>依存関係インストール（lockfile固定）</li>
-      <li>フォーマット確認</li>
-      <li>静的解析</li>
-      <li>型チェック</li>
-      <li>単体テスト</li>
-      <li>結合テスト</li>
-      <li>本番ビルド</li>
-      <li>E2Eテスト</li>
-      <li>依存関係・秘密情報・脆弱性監査</li>
-    </ol>
-    <p><strong>マージ条件：</strong>すべて成功し、重大・高リスクの脆弱性がなく、失敗テストやスキップされた必須テストがないこと。</p>
-  </section>
-
-  <section class="section">
-    <h2>公開承認</h2>
-    <table>
-      <tbody>
-        <tr><th>素材・文章責任者</th><td>氏名：　　　　　　　　　　確認日：　　　　年　　月　　日</td></tr>
-        <tr><th>営業・業務責任者</th><td>氏名：　　　　　　　　　　確認日：　　　　年　　月　　日</td></tr>
-        <tr><th>開発責任者</th><td>氏名：　　　　　　　　　　確認日：　　　　年　　月　　日</td></tr>
-        <tr><th>公開判定</th><td>□ 公開可　　□ 条件付き公開　　□ 公開不可</td></tr>
-        <tr><th>残課題</th><td style="height:90px"></td></tr>
-      </tbody>
-    </table>
-    <p class="footer-note">チェック状態は、このHTMLを開いたブラウザのlocalStorageに保存されます。別PCや別ブラウザには自動共有されません。正式な承認履歴はGitHub IssueまたはPull Requestにも記録してください。</p>
-  </section>
-</main>
-<script>
-  const boxes=[...document.querySelectorAll('input[type="checkbox"]')];
-  const key='sales-site-release-checklist-v1';
-  function save(){const data={};boxes.forEach(b=>data[b.id]=b.checked);localStorage.setItem(key,JSON.stringify(data));update();}
-  function load(){try{const data=JSON.parse(localStorage.getItem(key)||'{}');boxes.forEach(b=>{if(b.id in data)b.checked=!!data[b.id]})}catch(e){} update();}
-  function update(){const done=boxes.filter(b=>b.checked).length,total=boxes.length,p=Math.round(done/total*100);document.getElementById('totalCount').textContent=total;document.getElementById('doneCount').textContent=done;document.getElementById('remainingCount').textContent=total-done;document.getElementById('progressText').textContent=p+'%';document.getElementById('progressBar').style.width=p+'%';}
-  function setSection(id,state){document.querySelectorAll('#'+id+' input[type="checkbox"]').forEach(b=>b.checked=state);save();}
-  boxes.forEach(b=>b.addEventListener('change',save));
-  load();
-</script>
-</body>
+</main><footer class="site-footer">
+  <div>
+    <strong>運営者情報（要確認）</strong>
+    <p>営業時間: 平日 10:00-17:00</p>
+    <p>問い合わせ: contact@example.invalid</p>
+  </div>
+  <nav aria-label="フッター">
+    <a href="/bibs-sales-site/privacy">プライバシーポリシー</a>
+    <a href="/bibs-sales-site/contact">無料相談・問い合わせ</a>
+    <a href="/bibs-sales-site/sitemap.xml">サイトマップ</a>
+  </nav>
+  <small>&copy; BIBS FACTORY</small>
+</footer></body>
 </html>
