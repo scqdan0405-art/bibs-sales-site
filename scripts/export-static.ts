@@ -11,6 +11,7 @@ rmSync(outDir, { recursive: true, force: true });
 mkdirSync(outDir, { recursive: true });
 copyFileSync("public/styles.css", join(outDir, "styles.css"));
 copyFileSync("public/favicon.svg", join(outDir, "favicon.svg"));
+copyFileSync("preview.html", join(outDir, "preview.html"));
 
 writePage("index.html", renderHome());
 writePage("features/index.html", renderFeatures());
