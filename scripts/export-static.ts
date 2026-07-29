@@ -12,8 +12,9 @@ mkdirSync(outDir, { recursive: true });
 copyFileSync("public/styles.css", join(outDir, "styles.css"));
 copyFileSync("public/favicon.svg", join(outDir, "favicon.svg"));
 copyFileSync("preview.html", join(outDir, "preview.html"));
+copyFileSync("preview.html", join(outDir, "index.html"));
 
-writePage("index.html", renderHome());
+writePage("site/index.html", renderHome());
 writePage("features/index.html", renderFeatures());
 writePage("price/index.html", renderPrice());
 writePage("cases/index.html", renderCases());
