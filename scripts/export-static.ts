@@ -21,6 +21,7 @@ writePage("flow/index.html", renderFlow());
 writePage("faq/index.html", renderFaq());
 writePage("contact/index.html", renderContactPreview());
 writePage("privacy/index.html", renderPrivacy());
+writePage("human-preparation/index.html", renderHumanPreparation());
 writeFileSync(join(outDir, "robots.txt"), "User-agent: *\nDisallow:\n", "utf8");
 writeFileSync(join(outDir, "sitemap.xml"), renderSitemap(), "utf8");
 
@@ -94,12 +95,35 @@ function renderPrivacy(): string {
   return page("プライバシーポリシー", `${publicHeader()}<main class="narrow"><h1>プライバシーポリシー</h1><p>${escapeHtml(store.site.privacyPolicy)}</p></main>${publicFooter()}`);
 }
 
+function renderHumanPreparation(): string {
+  const sections = [
+    {
+      title: "本番公開前に人間が確定する内容",
+      items: ["正式な会社名・運営者情報", "正式なロゴ・商品画像", "価格の税込/税別、送料、納期", "キャンセル、修正、返品条件", "プライバシーポリシー正式文面", "通知先メールアドレスと送信ドメイン", "本番ドメイン、DNS、SSL"]
+    },
+    {
+      title: "人間が差し替える素材",
+      items: ["トップページの商品写真", "制作事例の写真と説明文", "価格表、サイズ表、注意事項", "会社情報、営業時間、問い合わせ先", "OGP画像、favicon、ブランド表記"]
+    },
+    {
+      title: "人間が確認する動作",
+      items: ["スマートフォンで横スクロールが出ない", "価格ページとFAQが読みやすい", "問い合わせフォームの入力内容が妥当", "JPEG、PNG、PDF添付の受け取り", "管理者通知メールと顧客自動返信メール", "管理画面に未認証で入れない", "404ページ、robots、sitemap"]
+    },
+    {
+      title: "GitHub Pagesプレビューの制限",
+      items: ["問い合わせ送信は動作しない", "添付保存は動作しない", "管理画面ログインは動作しない", "上記はローカル実行版または本番サーバーで確認する"]
+    }
+  ];
+  const html = sections.map((section) => `<section class="panel"><h2>${escapeHtml(section.title)}</h2><ul>${section.items.map((item) => `<li><label><input type="checkbox"> ${escapeHtml(item)}</label></li>`).join("")}</ul></section>`).join("");
+  return page("人間が行う準備・確認作業", `${publicHeader()}<main><h1>人間が行う準備・確認作業</h1><p class="lead">本番公開前に担当者が確認・差し替えする項目をまとめたチェックリストです。</p><div class="grid">${html}</div></main>${publicFooter()}`);
+}
+
 function caseCard(item: CaseStudy): string {
   return `<article class="case-card"><div class="placeholder small" role="img" aria-label="${escapeHtml(item.imageAlt)}"></div><h3>${escapeHtml(item.title)}</h3><p>${escapeHtml(item.summary)}</p><a href="./cases/${escapeHtml(item.id)}/">詳細を見る</a></article>`;
 }
 
 function renderSitemap(): string {
   const baseUrl = "https://example.invalid";
-  const urls = ["/", "/features/", "/price/", "/cases/", "/flow/", "/faq/", "/contact/", "/privacy/", ...published(store.cases).map((item) => `/cases/${item.id}/`)];
+  const urls = ["/", "/features/", "/price/", "/cases/", "/flow/", "/faq/", "/contact/", "/privacy/", "/human-preparation/", ...published(store.cases).map((item) => `/cases/${item.id}/`)];
   return `<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">${urls.map((path) => `<url><loc>${baseUrl}${path}</loc></url>`).join("")}</urlset>`;
 }
